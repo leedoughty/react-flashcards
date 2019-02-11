@@ -15,10 +15,27 @@ class App extends Component {
     }
   }
 
+  componentWillMount() {
+    const currentCards = this.state.cards;
+
+    this.setState({
+      cards: currentCards,
+      currentCard: this.getRandomCard(currentCards)
+    })
+  }
+
+  getRandomCard(currentCards) {
+    let card = currentCards[Math.floor(Math.random() * currentCards.length)];
+    return(card);
+  }
+
   render() {
     return (
       <div className="App">
-        <Card />
+        <Card jpn={this.state.currentCard.jpn}
+              eng={this.state.currentCard.eng}
+              pronunciation={this.state.currentCard.pronunciation}
+              />
       </div>
     );
   }
