@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from './Card/Card';
+import DrawButton from './DrawButton/DrawButton';
 
 class App extends Component {
   constructor(props) {
     super(props);
+
+    this.updateCard = this.updateCard.bind(this);
 
     this.state = {
       cards: [
@@ -29,13 +32,22 @@ class App extends Component {
     return(card);
   }
 
+  updateCard() {
+    console.log("New card!");
+  }
+
   render() {
     return (
       <div className="App">
-        <Card jpn={this.state.currentCard.jpn}
+        <div className="cardRow">
+          <Card jpn={this.state.currentCard.jpn}
               eng={this.state.currentCard.eng}
               pronunciation={this.state.currentCard.pronunciation}
-              />
+          />
+        </div>
+        <div className="buttonRow">
+          <DrawButton DrawCard={this.updateCard}/>
+        </div>
       </div>
     );
   }
