@@ -9,6 +9,8 @@ class App extends Component {
 
     this.updateCard = this.updateCard.bind(this);
 
+    this.updateCard = this.updateCard.bind(this);
+
     this.state = {
       cards: [
         {id: 1, jpn: "Japanese", eng: "English", pronunciation: "Pronunciation" },
@@ -46,7 +48,7 @@ class App extends Component {
           />
         </div>
         <div className="buttonRow">
-          <DrawButton DrawCard={this.updateCard}/>
+          <DrawButton drawCard={this.updateCard}/>
         </div>
       </div>
     );
